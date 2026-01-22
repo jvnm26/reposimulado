@@ -1,0 +1,169 @@
+:root {
+    --cor1: #f5f5f5;
+    --cor2: #ffbb00;
+    --cor3: #e2e2e2;
+    --cor4: #15e037;
+    --cor5: #174cdf;
+    --cor6: #e61111;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.labelLogin {
+    width: 100%;
+    height: 75%;
+
+}
+
+.inputLogin {
+    width: 100%;
+    height: 75%;
+
+    border: none;
+    border-bottom: 1px solid var(--cor2);
+
+    background-color: transparent;
+}
+
+.btnLogin {
+    width: 100%;
+    height: 2rem;
+
+    border-radius: 10px;
+    border: 1px solid var(--cor2);
+    background-color: var(--cor2);
+
+    transition: all 0.3s;
+}
+
+.btnLogin:hover {
+    transform: scale(1.1);
+    background-color: transparent;
+}
+
+.btnInsertMenu {
+    width: 20%;
+    height: 2rem;
+
+    border-radius: 10px;
+    border: 1px solid var(--cor4);
+    background-color: var(--cor4);
+
+    color: var(--cor1);
+    font-variant: small-caps;
+    font-size: large;
+
+    transition: all 0.3s;
+}
+
+.btnInsertMenu:hover {
+    transform: scale(1.1);
+    background-color: transparent;
+    color: var(--cor4);
+}
+
+.buttonOptions .btnUpdate {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 55px;
+    height: 35px;
+
+    font-size: larger;
+    color: var(--cor1);
+
+    border-radius: 5px;
+    border: none;
+
+    background-color: var(--cor5);
+
+    transition: all 0.3s;
+}
+
+.buttonOptions .btnDelete{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 55px;
+    height: 35px;
+
+    font-size: larger;
+    color: var(--cor1);
+
+    border-radius: 5px;
+    border: none;
+
+    background-color: var(--cor6);
+
+    transition: all 0.3s;
+}
+
+.buttonOptions .btnExecute{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 55px;
+    height: 35px;
+
+    font-size: larger;
+    color: var(--cor4);
+
+    border-radius: 5px;
+    border: 1px solid #15e037;
+
+    background-color: var(--cor1);
+
+    transition: all 0.3s;
+}
+
+.btnUpdate:hover{
+    transform: scale(1.2);
+}
+
+.btnDelete:hover{
+    transform: scale(1.2);
+}
+
+.btnExecute:hover{
+    transform: scale(1.2);
+}
+
+.insertContainer .question {
+    text-align: justify;
+    width: 100%;
+    height: 10rem;
+}
+
+.alt {
+    width: 30rem;
+    height: 3rem;
+}
+
+.btnAddQuest {
+    width: 100%;
+    height: 3rem;
+
+    margin-top: 1%;
+
+    border-radius: 10px;
+    border: 1px solid var(--cor4);
+    background-color: var(--cor4);
+
+    color: var(--cor1);
+    font-variant: small-caps;
+    font-size: large;
+
+    transition: all 0.3s;
+}
+
+.btnAddQuest:hover {
+    transform: scale(1.05);
+    background-color: transparent;
+    color: var(--cor4);
+}

@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+:root {
+    --cor1: #f5f5f5;
+    --cor2: #ffbb00;
+    --cor3: #e2e2e2;
+    --cor4: #15e037;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+h1, h6 {
+    font-variant: small-caps;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    min-width: 100vw;
+    min-height: 100vh;
+
+    background-color: var(--cor3);
+
+    font-family: 'Montserrat';
+    
+}
+
+hr {
+    margin: 10px;
+    color: var(--cor1);
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    margin-bottom: 5%;
+
+    height: 15vh;
+    width: 100vw;
+
+    background-color: var(--cor1);
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    margin-top: 5%;
+
+    height: 15vh;
+    width: 100vw;
+
+    background-color: var(--cor1);
+}
+
+/* Estilização do Index */
+.indexContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 30%;
+
+    width: 30vw;
+    height: 30vh;
+    padding: 30px;
+
+    border: 1px solid var(--cor2);
+    border-radius: 10px;
+
+    background-color: var(--cor1);
+    box-shadow: var(--cor2) 0px 1px 1px 0px inset, var(--cor2) 0px 50px 100px -20px, var(--cor2) 0px 30px 60px -30px;
+}
+
+.indexInputs {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 50%;
+
+    width: 80%;
+}
+
+.indexButtons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    width: 80%;
+}
+
+/* Estilização do Menu */
+.menuOptions {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    width: 90vw;
+}
+
+.menuItens {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 25px;
+
+    width: 90vw;
+}
+
+.menuContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 25px;
+    padding: 3%;
+
+    flex: 1;
+
+    background-color: var(--cor1);
+
+    border: none;
+    border-radius: 10px;
+}
+
+.simuName {
+    font-size: larger;
+    font-variant: small-caps;
+}
+
+.buttonOptions {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 25px;
+}
+
+/* Estilização do Insert */
+.insertContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    width: 80vw;
+    height: auto;
+    padding: 50px;
+
+    border-radius: 10px;
+
+    background-color: var(--cor1);
+}
+
+.insertContainer .aswers {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+
+    width: 1;
+}
+
+.insertContainer .aswers div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+
+    width: 100%;
+}
+
+.insertContainer .aswers div label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 5px;
+}
