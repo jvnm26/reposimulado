@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -10,7 +14,6 @@
     <link rel="stylesheet" href="assets/css/icon.css"> <!-- CSS dos Icones -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <!-- Link dos Icones do Bootstrap -->
-     testestsetsetse
 </head>
 
 <body>
@@ -18,8 +21,10 @@
         <h1>Tela de Login</h1>
     </header>
     <main>
+    <form action="login.php" method="POST">
         <div class="indexContainer">
             <div class="indexInputs">
+
                     <label class="labelLogin" for="username">Colaborador:
                     <input class="inputLogin" type="text" name="username" id="username">
                     </label>
@@ -31,6 +36,7 @@
                 <button class="btnLogin" type="submit" name="acess" id="acess">Log In</button>
             </div>
         </div>
+    </form>
     </main>
     <footer>
         <h6>by 061 Senac</h6>

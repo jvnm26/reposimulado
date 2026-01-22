@@ -32,7 +32,7 @@ if($row == 1) {
 	$_SESSION['nome'] = $nome;
 	$_SESSION['email'] = $email;
 	$_SESSION['id'] = $id;
-	header('Location: menu.php');
+	header('Location: menu.html');
 	exit();
 
 } else {
