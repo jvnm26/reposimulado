@@ -192,16 +192,22 @@ footer {
 
     gap: 5px;
 }
-#tablemenu {
+table {
     border-collapse: separate;
     border-spacing: 0 8px;
     margin-top: -8px;
+    background: #fafafa;
   }
   td {
     border-left-width: 0;
     height: 50px;
     padding: 5px 75px;
+    background-color: gray;
   }
   td:first-child {
     border-left-width: 1px;
+  }
+
+  tr:nth-child(even) {
+    background:lightgray;
   }

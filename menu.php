@@ -1,9 +1,9 @@
 <?php
     session_start();
-    include('verificalogin.php');
+    // include('verificalogin.php');
     include('connect.php');
 
-    $sql = "select s.nome Simulado, p.nome Professor, s.data Quando from simulado s
+    $sql = "select s.nome simulado, p.nome professor, s.data data from simulado s
     inner join professor p on p.id = s.idprofessor";
 
     // Área que vai efetuar a pesquisa pelo nome do cliente
@@ -55,7 +55,7 @@
                 </div> -->
 
                 <div class="container">
-                    <table style="background-color: gray; padding: 25px;" class="tablemenu">
+                    <table style="padding: 25px; border-radius: 5px;">
                         <thead>
                             <tr>
                                 <?php
@@ -70,13 +70,14 @@
                             <?php
     if($result && mysqli_num_rows($result)>0){
         while ($row = mysqli_fetch_assoc($result)){
+            $data = !empty($row['data']) ? date("d/m/Y", strtotime($row['data'])) : "-";
             echo "<tr>
-            <td>{$row['nome']}</td>
+            <td>{$row['simulado']}</td>
             <td>{$row['professor']}</td>
-            <td>{$row['data']}</td>
+            <td>{$data}</td>
             <td>
-            <button class='btnUpdate'><i class='bi bi-pencil-square'></i></button>
-            <button class='btnDelete'><i class='bi bi-trash-fill'></i></button>
+            <a href='alterar.php?deleteid={$row['id']}'<button class='btnUpdate'><i class='bi bi-pencil-square'></i></button></a>
+            <a href='insert.php?deleteid={$row['id']}'<button class='btnDelete'><i class='bi bi-trash-fill'></i></button></a>
             <button class='btnExecute'><i class='bi bi-play-fill'></i></button>
             </td>";
         }
