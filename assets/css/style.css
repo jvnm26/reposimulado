@@ -193,3 +193,27 @@ footer {
 
     gap: 5px;
 }
+
+.menuContainer table    {
+    border-collapse: separate;
+    border-spacing: 0 8px;
+    margin-top: -8px;
+    background: #fafafa;
+    width: 100%;
+    table-layout: fixed;
+  }
+  .menuContainer td {
+    padding: 5px 75px;
+    background-color: rgb(202, 202, 202);
+  }
+  td:first-child {
+    border-left-width: 1px;
+  }
+
+  tr:nth-child(even) {
+    background:rgb(255, 255, 255);
+  }
+  .menuContainer th {
+    background-color: #e2e2e2;
+    font-weight: 600;
+}

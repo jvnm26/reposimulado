@@ -46,7 +46,7 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              Iniciar novo Simulado?
+            <input type="text" class="form-control" placeholder="Digite o nome da prova" aria-describedby="basic-addon1">
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não, fechar</button>
@@ -85,11 +85,11 @@
             <thead>
               <tr>
                 <?php
-                                $lista = ['Id', 'Nome', 'Professora', 'Data', 'Componentes'];
-                                for ($lc=0; $lc < count($lista); $lc++) { 
-                                    echo"<th scope='col'>" . $lista[$lc] . "</th>";
-                                }
-                                ?>
+                  $lista = ['Id', 'Nome', 'Professora', 'Data', 'Componentes'];
+                  for ($lc=0; $lc < count($lista); $lc++) { 
+                      echo"<th scope='col'>" . $lista[$lc] . "</th>";
+                  }
+                  ?>
               </tr>
             </thead>
             <tbody>

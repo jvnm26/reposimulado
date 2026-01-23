@@ -43,12 +43,14 @@ $id = $_GET['deleteid'];
   <header>
   </header>
   <main>
+    <form action="" method="post">
     <div class="menuOptions">
         <h3>Deseja excluir esta redação?</h3>
     <div class='buttonOptions'>
     <a href="./menu.php"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não, fechar</button></a>
     <button type="submit" name="submit" class='btnDelete'><i class='bi bi-trash-fill'></i></button>
     </div>
+    </form>
 
       <!-- Modal -->
       <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
