@@ -1,3 +1,13 @@
+<?php
+    session_start();
+    // include('verificalogin.php');
+    include('connect.php');
+
+    if (isset($_POST['submit'])) {
+        $pesqnome = mysqli_real_escape_string($con, $_POST['pesqnome']);
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 

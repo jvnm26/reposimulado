@@ -3,7 +3,7 @@
     // include('verificalogin.php');
     include('connect.php');
 
-    $sql = "select s.nome simulado, p.nome professor, s.data data from simulado s
+    $sql = "select s.id, s.nome simulado, p.nome professor, s.data data from simulado s
     inner join professor p on p.id = s.idprofessor";
 
     // Área que vai efetuar a pesquisa pelo nome do cliente
@@ -11,7 +11,7 @@
     if (isset($_POST['submit'])) {
         $pesqnome = mysqli_real_escape_string($con, $_POST['pesqnome']);
         // Consulta para buscar usuários com base no nome fornecido
-        $sql = "select s.nome Simulado, p.nome Professor, s.data Quando from simulado s
+        $sql = "select id, s.nome Simulado, p.nome Professor, s.data Quando from simulado s
         inner join professor p on p.id = s.idprofessor WHERE snome LIKE '%$pesqnome%' ORDER BY nome ASC";
     }
     $result = mysqli_query($con, $sql);
@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="assets/css/button.css"> <!-- CSS dos Botões e Inputs -->
     <link rel="stylesheet" href="assets/css/icon.css"> <!-- CSS dos Icones -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!-- Link dos Icones do Bootstrap -->
 </head>
 
@@ -37,29 +38,58 @@
     </header>
     <main>
         <div class="menuOptions">
-            <button class="btnInsertMenu">
-                <i class="bi bi-clipboard2-plus-fill"> Novo Simulado</i>
-            </button>
+            <button type="button" class="btnInsertMenu" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Novo Simulado
+              </button>
+              
+              <!-- Modal -->
+              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      Iniciar novo Simulado?
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não, fechar</button>
+                      <button type="button" class="btn btn-primary">Iniciar novo simulado</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Modal -->
+              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      ...
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
         </div>
         <hr>
         <div class="menuItens">
             <!-- Container de simulado -->
             <!-- Utilizar como a "linha da tabela" -->
             <div class="menuContainer">
-                <!-- <div class="simuName">Nome do Simulado</div>
-                <div class="questCount">Número de Questões</div>
-                <div class="buttonOptions">
-                    <button class="btnUpdate"><i class="bi bi-pencil-square"></i></button>
-                    <button class="btnDelete"><i class="bi bi-trash-fill"></i></button>
-                    <button class="btnExecute"><i class="bi bi-play-fill"></i></button>
-                </div> -->
-
                 <div class="container">
                     <table style="padding: 25px; border-radius: 5px;">
                         <thead>
                             <tr>
                                 <?php
-                                $lista = ['Nome', 'Professora', 'Data', 'Componentes'];
+                                $lista = ['Id', 'Nome', 'Professora', 'Data', 'Componentes'];
                                 for ($lc=0; $lc < count($lista); $lc++) { 
                                     echo"<th scope='col'>" . $lista[$lc] . "</th>";
                                 }
@@ -72,12 +102,13 @@
         while ($row = mysqli_fetch_assoc($result)){
             $data = !empty($row['data']) ? date("d/m/Y", strtotime($row['data'])) : "-";
             echo "<tr>
+            <td>{$row['id']}</td>
             <td>{$row['simulado']}</td>
             <td>{$row['professor']}</td>
             <td>{$data}</td>
             <td>
-            <a href='alterar.php?deleteid={$row['id']}'<button class='btnUpdate'><i class='bi bi-pencil-square'></i></button></a>
-            <a href='insert.php?deleteid={$row['id']}'<button class='btnDelete'><i class='bi bi-trash-fill'></i></button></a>
+            <a href='update.php?updateid={$row['id']}'<button class='btnUpdate'><i class='bi bi-pencil-square'></i></button></a>
+            <a href='delete.php?deleteid={$row['id']}'<button class='btnDelete'><i class='bi bi-trash-fill'></i></button></a>
             <button class='btnExecute'><i class='bi bi-play-fill'></i></button>
             </td>";
         }
@@ -94,6 +125,7 @@
     <footer>
         <h6>by 061 Senac</h6>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 
 </html>
