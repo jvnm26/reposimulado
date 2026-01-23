@@ -8,7 +8,7 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projeto Indiano</title>
+    <title>Simulado</title>
     <link rel="stylesheet" href="assets/css/style.css"> <!-- CSS Principal -->
     <link rel="stylesheet" href="assets/css/button.css"> <!-- CSS dos Botões e Inputs -->
     <link rel="stylesheet" href="assets/css/icon.css"> <!-- CSS dos Icones -->
@@ -26,14 +26,14 @@ session_start();
             <div class="indexInputs">
 
                     <label class="labelLogin" for="username">Colaborador:
-                    <input class="inputLogin" type="text" name="username" id="username">
+                    <input class="inputLogin" type="email" name="email" id="email">
                     </label>
                     <label class="labelLogin" for="password">Senha:
-                    <input class="inputLogin" type="password" name="password" id="password">
+                    <input class="inputLogin" type="password" name="senha" id="senha">
                     </label>
             </div>
             <div class="indexButtons">
-                <button class="btnLogin" type="submit" name="acess" id="acess">Log In</button>
+                <button class="btnLogin" type="submit" name="submit" id="acess">Log In</button>
             </div>
         </div>
     </form>

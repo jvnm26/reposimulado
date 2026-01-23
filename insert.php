@@ -14,7 +14,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projeto Indiano</title>
+    <title>Simulado</title>
     <link rel="stylesheet" href="assets/css/style.css"> <!-- CSS Principal -->
     <link rel="stylesheet" href="assets/css/button.css"> <!-- CSS dos Botões e Inputs -->
     <link rel="stylesheet" href="assets/css/icon.css"> <!-- CSS dos Icones -->
