@@ -21,8 +21,9 @@ body {
     justify-content: space-between;
     align-items: center;
 
-    min-width: 100vw;
+    width: 100%;
     min-height: 100vh;
+    overflow-x: hidden;
 
     background-color: var(--cor3);
 
@@ -192,22 +193,3 @@ footer {
 
     gap: 5px;
 }
-table {
-    border-collapse: separate;
-    border-spacing: 0 8px;
-    margin-top: -8px;
-    background: #fafafa;
-  }
-  td {
-    border-left-width: 0;
-    height: 50px;
-    padding: 5px 75px;
-    background-color: gray;
-  }
-  td:first-child {
-    border-left-width: 1px;
-  }
-
-  tr:nth-child(even) {
-    background:lightgray;
-  }

@@ -1,12 +1,24 @@
 <?php
-    session_start();
-    include('verificalogin.php');
-    include('connect.php');
+session_start();
+include('verificalogin.php');
+include('connect.php');
+
+// Obter o ID do venda a ser excluído
+$id = $_GET['deleteid'];
 
     $sql = "select s.id, s.nome simulado, p.nome professor, s.data data from simulado s
-    inner join professor p on p.id = s.idprofessor";
+    inner join professor p on p.id = s.idprofessor where s.id = $id";
 
     $result = mysqli_query($con, $sql);
+    if (isset($_POST['submit'])) {
+        $sql = "delete from simulado where id = $id";
+        $result = mysqli_query($con, $sql);
+    if ($result) {
+        header('location: menu.php');
+    } else {
+        die(mysqli_error($con));
+    }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -29,13 +41,14 @@
 
 <body>
   <header>
-    <h1>Simulados</h1>
   </header>
   <main>
     <div class="menuOptions">
-      <button type="button" class="btnInsertMenu" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        Novo Simulado
-      </button>
+        <h3>Deseja excluir esta redação?</h3>
+    <div class='buttonOptions'>
+    <a href="./menu.php"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não, fechar</button></a>
+    <button type="submit" name="submit" class='btnDelete'><i class='bi bi-trash-fill'></i></button>
+    </div>
 
       <!-- Modal -->
       <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -85,11 +98,11 @@
             <thead>
               <tr>
                 <?php
-                                $lista = ['Id', 'Nome', 'Professora', 'Data', 'Componentes'];
-                                for ($lc=0; $lc < count($lista); $lc++) { 
-                                    echo"<th scope='col'>" . $lista[$lc] . "</th>";
-                                }
-                                ?>
+                $lista = ['Id', 'Nome', 'Professora', 'Data'];
+                for ($lc=0; $lc < count($lista); $lc++) { 
+                    echo"<th scope='col'>" . $lista[$lc] . "</th>";
+                }
+                ?>
               </tr>
             </thead>
             <tbody>
@@ -101,14 +114,7 @@
                 <td>{$row['id']}</td>
                 <td>{$row['simulado']}</td>
                 <td>{$row['professor']}</td>
-                <td>{$data}</td>
-                <td>
-                <div class='buttonOptions'>
-                  <button class='btnUpdate'><i class='bi bi-pencil-square'></i></button></a>
-                  <a href='delete.php?deleteid={$row['id']}'><button class='btnDelete'><i class='bi bi-trash-fill'></i></button></a>
-                  <button class='btnExecute'><i class='bi bi-play-fill'></i></button>
-                </div>
-                </td>";
+                <td>{$data}</td>";
                 }
                   } else {
                     echo "<tr><td colspan='9' class='text-center'>Nenhuma prova encontrada.</td></tr>";
