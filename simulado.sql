@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 24-Jan-2026 às 00:18
--- Versão do servidor: 10.4.20-MariaDB
--- versão do PHP: 8.0.9
+-- Generation Time: Jan 24, 2026 at 01:24 AM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `simulado`
+-- Database: `simulado`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `alternativa`
+-- Table structure for table `alternativa`
 --
 
 CREATE TABLE `alternativa` (
@@ -32,98 +32,98 @@ CREATE TABLE `alternativa` (
   `idpergunta` int(11) NOT NULL,
   `texto` varchar(500) NOT NULL,
   `certo` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `alternativa`
+-- Dumping data for table `alternativa`
 --
 
 INSERT INTO `alternativa` (`id`, `idpergunta`, `texto`, `certo`) VALUES
-(41, 121, 'A equação é resolvida isolando a incógnita.', 1),
-(42, 121, 'A equação não possui solução possível.', 0),
-(43, 121, 'O resultado depende apenas da soma dos termos.', 0),
-(44, 121, 'Toda equação tem infinitas soluções.', 0),
-(45, 122, 'A área do triângulo é base vezes altura dividido por dois.', 1),
-(46, 122, 'A área depende somente da hipotenusa.', 0),
-(47, 122, 'Triângulos não possuem área.', 0),
-(48, 122, 'A área é sempre igual ao perímetro.', 0),
-(49, 123, 'O valor encontrado satisfaz a igualdade.', 1),
-(50, 123, 'Não existe valor que resolva a equação.', 0),
-(51, 123, 'O valor correto é sempre negativo.', 0),
-(52, 123, 'A equação é inválida matematicamente.', 0),
-(53, 124, 'A progressão possui razão constante.', 1),
-(54, 124, 'Os termos são aleatórios.', 0),
-(55, 124, 'A progressão não possui fórmula.', 0),
-(56, 124, 'A razão é sempre zero.', 0),
-(57, 125, 'A média é a soma dos valores dividida pela quantidade.', 1),
-(58, 125, 'A média corresponde ao maior valor.', 0),
-(59, 125, 'A média ignora números extremos.', 0),
-(60, 125, 'Só existe média com números pares.', 0),
-(61, 126, 'O sujeito pratica ou sofre a ação.', 1),
-(62, 126, 'Toda frase tem dois sujeitos.', 0),
-(63, 126, 'O sujeito é sempre oculto.', 0),
-(64, 126, 'Sujeito e verbo são a mesma coisa.', 0),
-(65, 127, 'O predicado é tudo que se declara sobre o sujeito.', 1),
-(66, 127, 'Predicado só existe em frases interrogativas.', 0),
-(67, 127, 'Predicado é apenas o verbo.', 0),
-(68, 127, 'Toda frase possui mais de um predicado.', 0),
-(69, 128, 'A figura de linguagem altera o sentido literal.', 1),
-(70, 128, 'Serve apenas para textos científicos.', 0),
-(71, 128, 'Elimina o sentido da frase.', 0),
-(72, 128, 'Não existe na língua portuguesa.', 0),
-(73, 129, 'A voz passiva destaca quem sofre a ação.', 1),
-(74, 129, 'Elimina o sujeito da frase.', 0),
-(75, 129, 'Só ocorre na linguagem informal.', 0),
-(76, 129, 'Não pode ser usada no português.', 0),
-(77, 130, 'A crase ocorre pela fusão de duas vogais iguais.', 1),
-(78, 130, 'É usada antes de verbos.', 0),
-(79, 130, 'Toda palavra feminina leva crase.', 0),
-(80, 130, 'É sempre opcional.', 0),
-(81, 131, 'A Revolução Industrial iniciou a mecanização da produção.', 1),
-(82, 131, 'Eliminou o trabalho humano.', 0),
-(83, 131, 'Ocorreu exclusivamente no Brasil.', 0),
-(84, 131, 'Não teve impactos sociais.', 0),
-(85, 132, 'O imperialismo buscava expansão econômica e territorial.', 1),
-(86, 132, 'Defendia igualdade entre todas as nações.', 0),
-(87, 132, 'Eliminou conflitos internacionais.', 0),
-(88, 132, 'Não teve influência histórica.', 0),
-(89, 133, 'O período entre guerras foi marcado por instabilidade.', 1),
-(90, 133, 'Foi um período de paz absoluta.', 0),
-(91, 133, 'Não houve crises econômicas.', 0),
-(92, 133, 'Não influenciou a Segunda Guerra.', 0),
-(93, 134, 'O nazifascismo defendia regimes autoritários.', 1),
-(94, 134, 'Promovia liberdade total de expressão.', 0),
-(95, 134, 'Defendia democracia plena.', 0),
-(96, 134, 'Não teve impacto político.', 0),
-(97, 135, 'A globalização intensifica relações econômicas e culturais.', 1),
-(98, 135, 'Isola países economicamente.', 0),
-(99, 135, 'Elimina diferenças culturais.', 0),
-(100, 135, 'Reduz o comércio internacional.', 0),
-(101, 136, 'O clima corresponde a padrões de longo prazo.', 1),
-(102, 136, 'Clima e tempo são sinônimos.', 0),
-(103, 136, 'O clima muda diariamente.', 0),
-(104, 136, 'Não sofre influência ambiental.', 0),
-(105, 137, 'O efeito estufa mantém a temperatura da Terra.', 1),
-(106, 137, 'Torna o planeta inabitável.', 0),
-(107, 137, 'Não tem relação com gases.', 0),
-(108, 137, 'É causado apenas por vulcões.', 0),
-(109, 138, 'Energias renováveis se regeneram naturalmente.', 1),
-(110, 138, 'São sempre poluentes.', 0),
-(111, 138, 'Existem apenas em países ricos.', 0),
-(112, 138, 'Não produzem eletricidade.', 0),
-(113, 139, 'A aceleração indica variação de velocidade.', 1),
-(114, 139, 'Aceleração e velocidade são iguais.', 0),
-(115, 139, 'Só existe em objetos parados.', 0),
-(116, 139, 'Não depende do tempo.', 0),
-(117, 140, 'A força resultante é a soma vetorial das forças.', 1),
-(118, 140, 'Forças não podem ser somadas.', 0),
-(119, 140, 'A força resultante é sempre zero.', 0),
-(120, 140, 'Só existe uma força em qualquer sistema.', 0);
+(1, 121, 'A aceleração é a variação da velocidade pelo tempo.', 1),
+(2, 121, 'A aceleração corresponde à velocidade constante.', 0),
+(3, 121, 'A aceleração depende apenas da massa.', 0),
+(4, 121, 'A aceleração é sempre zero.', 0),
+(5, 122, 'Um corpo tende a manter seu estado de repouso ou movimento.', 1),
+(6, 122, 'Todo corpo em movimento para naturalmente.', 0),
+(7, 122, 'A força é proporcional à aceleração.', 0),
+(8, 122, 'A ação gera uma reação contrária.', 0),
+(9, 123, 'Massa é constante e peso depende da gravidade.', 1),
+(10, 123, 'Massa e peso são sempre iguais.', 0),
+(11, 123, 'Peso não depende da gravidade.', 0),
+(12, 123, 'Massa varia conforme o planeta.', 0),
+(13, 124, 'É a soma vetorial de todas as forças aplicadas.', 1),
+(14, 124, 'É sempre igual à força peso.', 0),
+(15, 124, 'Não depende da direção das forças.', 0),
+(16, 124, 'Existe apenas uma força em um corpo.', 0),
+(17, 125, 'Possui aceleração constante.', 1),
+(18, 125, 'A velocidade é sempre zero.', 0),
+(19, 125, 'Não existe aceleração.', 0),
+(20, 125, 'O movimento ocorre apenas em repouso.', 0),
+(21, 126, 'A incógnita aparece no expoente.', 1),
+(22, 126, 'A incógnita aparece no denominador.', 0),
+(23, 126, 'A equação não possui expoentes.', 0),
+(24, 126, 'Toda equação exponencial é linear.', 0),
+(25, 127, 'Logaritmo é o expoente de uma potência.', 1),
+(26, 127, 'Logaritmo é sempre negativo.', 0),
+(27, 127, 'Logaritmo não possui base.', 0),
+(28, 127, 'Logaritmo é uma soma.', 0),
+(29, 128, 'O resultado é um intervalo de valores.', 1),
+(30, 128, 'O resultado é sempre um número.', 0),
+(31, 128, 'Não possuem solução.', 0),
+(32, 128, 'São iguais às equações.', 0),
+(33, 129, 'Representa a relação entre variáveis.', 1),
+(34, 129, 'Mostra apenas números negativos.', 0),
+(35, 129, 'Não possui interpretação.', 0),
+(36, 129, 'Serve apenas para estética.', 0),
+(37, 130, 'É uma razão com denominador 100.', 1),
+(38, 130, 'É sempre maior que 100.', 0),
+(39, 130, 'Não pode ser calculada.', 0),
+(40, 130, 'Não depende de frações.', 0),
+(41, 131, 'Analisa o sentido e a linguagem do texto.', 1),
+(42, 131, 'Avalia apenas a gramática.', 0),
+(43, 131, 'Ignora figuras de linguagem.', 0),
+(44, 131, 'Não considera o contexto.', 0),
+(45, 132, 'Define a intenção comunicativa do texto.', 1),
+(46, 132, 'Classifica apenas verbos.', 0),
+(47, 132, 'Depende do tamanho do texto.', 0),
+(48, 132, 'Não possui categorias.', 0),
+(49, 133, 'Relacionam ideias de forma lógica.', 1),
+(50, 133, 'Tratam apenas de ortografia.', 0),
+(51, 133, 'Não interferem no sentido.', 0),
+(52, 133, 'São conceitos iguais.', 0),
+(53, 134, 'Mostra diferentes formas de uso da língua.', 1),
+(54, 134, 'Elimina normas gramaticais.', 0),
+(55, 134, 'É erro de linguagem.', 0),
+(56, 134, 'Não existe no português.', 0),
+(57, 135, 'Variam conforme o contexto.', 1),
+(58, 135, 'São sempre iguais.', 0),
+(59, 135, 'Não possuem regras.', 0),
+(60, 135, 'Existem apenas na escrita.', 0),
+(61, 136, 'Introduziu a mecanização da produção.', 1),
+(62, 136, 'Eliminou o trabalho humano.', 0),
+(63, 136, 'Aconteceu apenas no Brasil.', 0),
+(64, 136, 'Não trouxe mudanças sociais.', 0),
+(65, 137, 'Buscava expansão econômica e territorial.', 1),
+(66, 137, 'Promovia igualdade entre nações.', 0),
+(67, 137, 'Eliminou conflitos.', 0),
+(68, 137, 'Não teve impactos.', 0),
+(69, 138, 'Foi marcado por crises e instabilidade.', 1),
+(70, 138, 'Foi um período de paz.', 0),
+(71, 138, 'Não houve crises econômicas.', 0),
+(72, 138, 'Não influenciou guerras.', 0),
+(73, 139, 'Defendia regimes autoritários.', 1),
+(74, 139, 'Promovia democracia plena.', 0),
+(75, 139, 'Garantia liberdade total.', 0),
+(76, 139, 'Não teve impacto político.', 0),
+(77, 140, 'Relaciona passado e presente.', 1),
+(78, 140, 'Analisa apenas datas.', 0),
+(79, 140, 'Ignora o contexto atual.', 0),
+(80, 140, 'Não permite interpretação.', 0);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `pergunta`
+-- Table structure for table `pergunta`
 --
 
 CREATE TABLE `pergunta` (
@@ -131,10 +131,10 @@ CREATE TABLE `pergunta` (
   `idprofessor` int(11) NOT NULL,
   `idsimulado` int(11) NOT NULL,
   `texto` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `pergunta`
+-- Dumping data for table `pergunta`
 --
 
 INSERT INTO `pergunta` (`id`, `idprofessor`, `idsimulado`, `texto`) VALUES
@@ -162,7 +162,7 @@ INSERT INTO `pergunta` (`id`, `idprofessor`, `idsimulado`, `texto`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `professor`
+-- Table structure for table `professor`
 --
 
 CREATE TABLE `professor` (
@@ -170,10 +170,10 @@ CREATE TABLE `professor` (
   `nome` varchar(50) NOT NULL,
   `email` varchar(100) NOT NULL,
   `senha` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `professor`
+-- Dumping data for table `professor`
 --
 
 INSERT INTO `professor` (`id`, `nome`, `email`, `senha`) VALUES
@@ -186,7 +186,7 @@ INSERT INTO `professor` (`id`, `nome`, `email`, `senha`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `simulado`
+-- Table structure for table `simulado`
 --
 
 CREATE TABLE `simulado` (
@@ -194,10 +194,10 @@ CREATE TABLE `simulado` (
   `idprofessor` int(11) NOT NULL,
   `nome` varchar(100) NOT NULL,
   `data` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `simulado`
+-- Dumping data for table `simulado`
 --
 
 INSERT INTO `simulado` (`id`, `idprofessor`, `nome`, `data`) VALUES
@@ -224,18 +224,18 @@ INSERT INTO `simulado` (`id`, `idprofessor`, `nome`, `data`) VALUES
 (25, 5, 'Simulado Avaliação Final', '2026-05-20');
 
 --
--- Índices para tabelas despejadas
+-- Indexes for dumped tables
 --
 
 --
--- Índices para tabela `alternativa`
+-- Indexes for table `alternativa`
 --
 ALTER TABLE `alternativa`
   ADD PRIMARY KEY (`id`),
   ADD KEY `idpergunta` (`idpergunta`);
 
 --
--- Índices para tabela `pergunta`
+-- Indexes for table `pergunta`
 --
 ALTER TABLE `pergunta`
   ADD PRIMARY KEY (`id`),
@@ -243,65 +243,65 @@ ALTER TABLE `pergunta`
   ADD KEY `idsimulado` (`idsimulado`);
 
 --
--- Índices para tabela `professor`
+-- Indexes for table `professor`
 --
 ALTER TABLE `professor`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `simulado`
+-- Indexes for table `simulado`
 --
 ALTER TABLE `simulado`
   ADD PRIMARY KEY (`id`),
   ADD KEY `idprofessor` (`idprofessor`);
 
 --
--- AUTO_INCREMENT de tabelas despejadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de tabela `alternativa`
+-- AUTO_INCREMENT for table `alternativa`
 --
 ALTER TABLE `alternativa`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=121;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
 
 --
--- AUTO_INCREMENT de tabela `pergunta`
+-- AUTO_INCREMENT for table `pergunta`
 --
 ALTER TABLE `pergunta`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=141;
 
 --
--- AUTO_INCREMENT de tabela `professor`
+-- AUTO_INCREMENT for table `professor`
 --
 ALTER TABLE `professor`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT de tabela `simulado`
+-- AUTO_INCREMENT for table `simulado`
 --
 ALTER TABLE `simulado`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
--- Restrições para despejos de tabelas
+-- Constraints for dumped tables
 --
 
 --
--- Limitadores para a tabela `alternativa`
+-- Constraints for table `alternativa`
 --
 ALTER TABLE `alternativa`
   ADD CONSTRAINT `alternativa_ibfk_1` FOREIGN KEY (`idpergunta`) REFERENCES `pergunta` (`id`);
 
 --
--- Limitadores para a tabela `pergunta`
+-- Constraints for table `pergunta`
 --
 ALTER TABLE `pergunta`
   ADD CONSTRAINT `pergunta_ibfk_1` FOREIGN KEY (`idprofessor`) REFERENCES `professor` (`id`),
   ADD CONSTRAINT `pergunta_ibfk_2` FOREIGN KEY (`idsimulado`) REFERENCES `simulado` (`id`);
 
 --
--- Limitadores para a tabela `simulado`
+-- Constraints for table `simulado`
 --
 ALTER TABLE `simulado`
   ADD CONSTRAINT `simulado_ibfk_1` FOREIGN KEY (`idprofessor`) REFERENCES `professor` (`id`);
