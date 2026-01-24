@@ -50,8 +50,8 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não, fechar</button>
-              <a href="./insert.php"><button type="button" class="btn btn-primary" id="btniniciar">Iniciar novo
-                  simulado</button></a>
+                <button type="button" class="btn btn-primary" id="btniniciar">Iniciar novo
+                  simulado</button>
             </div>
           </div>
         </div>
@@ -104,7 +104,7 @@
                 <td>{$data}</td>
                 <td>
                 <div class='buttonOptions'>
-                  <button class='btnUpdate'><i class='bi bi-pencil-square'></i></button></a>
+                <a href='update.php?updateid={$row['id']}'<button class='btnUpdate'><i class='bi bi-pencil-square'></i></button></a>
                   <a href='delete.php?deleteid={$row['id']}'><button class='btnDelete'><i class='bi bi-trash-fill'></i></button></a>
                   <button class='btnExecute'><i class='bi bi-play-fill'></i></button>
                 </div>
