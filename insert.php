@@ -1,6 +1,6 @@
 <?php
     session_start();
-    // include('verificalogin.php');
+    include('verificalogin.php');
     include('connect.php');
 
     if (isset($_POST['submit'])) {
@@ -31,6 +31,7 @@
         <!-- Adicione uma forma que apareça o local para por a pergunta, as respostas e um botão para adicionar outra pergunta -->
         <div class="insertContainer">
             <div class="numberQuest">Numero da pergunta</div>
+            <form action="" method="POST">
             <textarea class="question"></textarea>
             <div class="aswers">
                 <div>
@@ -46,9 +47,10 @@
                     <input type="radio" name="aswer"><Textarea class="alt"></Textarea></label>
                 </div>
             </div>
+            </form>
         </div>
         <div class="insertButton">
-            <button class="btnAddQuest"><i class="bi bi-plus-square-fill"> Adicionar Pergunta</i></button>
+            <button class="btnAddQuest" type="submit" name=""><i class="bi bi-plus-square-fill"> Adicionar Pergunta</i></button>
         </div>
     </main>
     <footer>
