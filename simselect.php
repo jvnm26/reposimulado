@@ -1,24 +1,12 @@
 <?php
-session_start();
-include('verificalogin.php');
-include('connect.php');
-
-// Obter o ID do venda a ser excluído
-$id = $_GET['deleteid'];
+    session_start();
+    // include('verificalogin.php');
+    include('connect.php');
 
     $sql = "select s.id, s.nome simulado, p.nome professor, s.data data from simulado s
-    inner join professor p on p.id = s.idprofessor where s.id = $id";
+    inner join professor p on p.id = s.idprofessor";
 
     $result = mysqli_query($con, $sql);
-    if (isset($_POST['submit'])) {
-        $sql = "delete from simulado where id = $id";
-        $result = mysqli_query($con, $sql);
-    if ($result) {
-        header('location: menu.php');
-    } else {
-        die(mysqli_error($con));
-    }
-    }
 ?>
 
 <!DOCTYPE html>
@@ -41,16 +29,13 @@ $id = $_GET['deleteid'];
 
 <body>
   <header>
+    <h1>Simulados</h1>
   </header>
   <main>
-    <form action="" method="post">
     <div class="menuOptions">
-        <h3>Deseja excluir esta redação?</h3>
-    <div class='buttonOptions'>
-    <a href="./menu.php"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não, fechar</button></a>
-    <button type="submit" name="submit" class='btnDelete'><i class='bi bi-trash-fill'></i></button>
-    </div>
-    </form>
+      <button type="button" class="btnInsertMenu" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Novo Simulado
+      </button>
 
       <!-- Modal -->
       <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -61,12 +46,12 @@ $id = $_GET['deleteid'];
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              Iniciar novo Simulado?
+            <input type="text" class="form-control" placeholder="Digite o nome da prova" aria-describedby="basic-addon1">
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não, fechar</button>
-              <a href="./insert.php"><button type="button" class="btn btn-primary" id="btniniciar">Iniciar novo
-                  simulado</button></a>
+                <button type="button" class="btn btn-primary" id="btniniciar">Iniciar novo
+                  simulado</button>
             </div>
           </div>
         </div>
@@ -100,11 +85,11 @@ $id = $_GET['deleteid'];
             <thead>
               <tr>
                 <?php
-                $lista = ['Id', 'Nome', 'Professora', 'Data'];
-                for ($lc=0; $lc < count($lista); $lc++) { 
-                    echo"<th scope='col'>" . $lista[$lc] . "</th>";
-                }
-                ?>
+                  $lista = ['Id', 'Nome', 'Professora', 'Data', 'Componentes'];
+                  for ($lc=0; $lc < count($lista); $lc++) { 
+                      echo"<th scope='col'>" . $lista[$lc] . "</th>";
+                  }
+                  ?>
               </tr>
             </thead>
             <tbody>
@@ -116,7 +101,14 @@ $id = $_GET['deleteid'];
                 <td>{$row['id']}</td>
                 <td>{$row['simulado']}</td>
                 <td>{$row['professor']}</td>
-                <td>{$data}</td>";
+                <td>{$data}</td>
+                <td>
+                <div class='buttonOptions'>
+                <a href='simupdate.php?updateid={$row['id']}'<button class='btnUpdate'><i class='bi bi-pencil-square'></i></button></a>
+                  <a href='simdelete.php?deleteid={$row['id']}'><button class='btnDelete'><i class='bi bi-trash-fill'></i></button></a>
+                  <button class='btnExecute'><i class='bi bi-play-fill'></i></button>
+                </div>
+                </td>";
                 }
                   } else {
                     echo "<tr><td colspan='9' class='text-center'>Nenhuma prova encontrada.</td></tr>";

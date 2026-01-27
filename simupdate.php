@@ -18,10 +18,10 @@
         $simulado = $_POST['simulado'];
         $idp =  $_POST['idp'];
         $data =  $_POST['data'];
-        $sql = "UPDATE `simulado` SET idprofessor='$simulado',nome='$nome',data='$data' WHERE id = $id"
+        $sql = "UPDATE simulado SET idprofessor =$simulado,nome=$nome,data=$data WHERE id = $id"
         $result = mysqli_query($con, $sql);
         if ($result) {
-            header('location: menu.php');
+            header('location: simselect.php');
         } else {
             die(mysqli_error($con));
         }
