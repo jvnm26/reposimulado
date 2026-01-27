@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 24, 2026 at 01:24 AM
+-- Generation Time: Jan 27, 2026 at 12:10 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -181,7 +181,8 @@ INSERT INTO `professor` (`id`, `nome`, `email`, `senha`) VALUES
 (2, 'Rafael Loyola de Souza Fretes', 'rafael@gmail.com', 'rafaloyola123'),
 (3, 'Julio Agosto Setembro de Souza Lima', '070809@gmail.com', 'jgs789\r\n'),
 (4, 'Diego Pereira de Matos Freitas', 'diegomatos@gmail.com', 'matosfreitas123'),
-(5, 'Sandro Oliveira Schneider', 'schneider445@gmail.com', 'schneider123');
+(5, 'Sandro Oliveira Schneider', 'schneider445@gmail.com', 'schneider123'),
+(6, 'admin', 'adm@gmail.com', '123');
 
 -- --------------------------------------------------------
 
@@ -275,7 +276,7 @@ ALTER TABLE `pergunta`
 -- AUTO_INCREMENT for table `professor`
 --
 ALTER TABLE `professor`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `simulado`
