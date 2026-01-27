@@ -1,6 +1,6 @@
 <?php
     session_start();
-    // include('verificalogin.php');
+    include('verificalogin.php');
     include('connect.php');
 
     $sql = "select s.id, s.nome simulado, p.nome professor, s.data data from simulado s
@@ -57,67 +57,31 @@
         </div>
       </div>
       <!-- Modal -->
-      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              ...
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-          </div>
-        </div>
-      </div>
+      
     </div>
     <hr>
     <div class="menuItens">
-      <!-- Container de simulado -->
-      <!-- Utilizar como a "linha da tabela" -->
-      <div class="menuContainer">
-        <div class="container-fluid">
-          <table>
-            <thead>
-              <tr>
-                <?php
-                  $lista = ['Id', 'Nome', 'Professora', 'Data', 'Componentes'];
-                  for ($lc=0; $lc < count($lista); $lc++) { 
-                      echo"<th scope='col'>" . $lista[$lc] . "</th>";
-                  }
-                  ?>
-              </tr>
-            </thead>
-            <tbody>
-              <?php
-                if($result && mysqli_num_rows($result)>0){
-                while ($row = mysqli_fetch_assoc($result)){
-                $data = !empty($row['data']) ? date("d/m/Y", strtotime($row['data'])) : "-";
-                echo "<tr>
-                <td>{$row['id']}</td>
-                <td>{$row['simulado']}</td>
-                <td>{$row['professor']}</td>
-                <td>{$data}</td>
-                <td>
-                <div class='buttonOptions'>
-                <a href='simupdate.php?updateid={$row['id']}'<button class='btnUpdate'><i class='bi bi-pencil-square'></i></button></a>
-                  <a href='simdelete.php?deleteid={$row['id']}'><button class='btnDelete'><i class='bi bi-trash-fill'></i></button></a>
-                  <button class='btnExecute'><i class='bi bi-play-fill'></i></button>
-                </div>
-                </td>";
-                }
-                  } else {
-                    echo "<tr><td colspan='9' class='text-center'>Nenhuma prova encontrada.</td></tr>";
-                  }
-              ?>
-            </tbody>
-          </table>
-        </div>
-      </div>
+        <?php
+        if($result && mysqli_num_rows($result)>0){
+          while ($row = mysqli_fetch_assoc($result)){
+          $data = !empty($row['data']) ? date("d/m/Y", strtotime($row['data'])) : "-";
+        echo"
+          <div class='menuContainer'>
+                    <div class='simuName'>{$row['simulado']}</div>
+                    <div class='questCount'>{$row['professor']}</div>
+                    <div class='questCount'>{$data}</div>
+                    <div class='buttonOptions'>
+                        <a href='./simupdate.php'><button class='btnUpdate'><i class='bi bi-pencil-square'></i></button></a>
+                        <a href='./simdelete.php'><button class='btnDelete'><i class='bi bi-trash-fill'></i></button></a>
+                        <button class='btnExecute'><i class='bi bi-play-fill'></i></button>
+                    </div>
+          </div>
+        ";
+          }
+        } else {
+          echo "<tr><td colspan='9' class='text-center'>Nenhuma prova encontrada.</td></tr>";
+        }
+        ?>
     </div>
   </main>
   <footer>

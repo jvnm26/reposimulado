@@ -4,9 +4,10 @@
     include('connect.php');
     
     $id = $_GET['updateid'];
-    $sql = 'select s.id ids, p.id idp, s.nome simulado, s.data data from simulado s
+    $sql = "select s.id, p.id idp, s.nome simulado, s.data data from simulado s
           inner join professor p on
-          p.id = s.idprofessor';
+          p.id = s.idprofessor 
+          where s.id = $id";
     
     $result = mysqli_query($con, $sql);
     $row = mysqli_fetch_assoc($result);
@@ -18,7 +19,7 @@
         $simulado = $_POST['simulado'];
         $idp =  $_POST['idp'];
         $data =  $_POST['data'];
-        $sql = "UPDATE simulado SET idprofessor = $simulado,nome= $nome,data= $data WHERE id = $id"
+        $sql = "UPDATE simulado SET idprofessor=$idp , nome='$simulado', data = '$data' WHERE id = $id";
         $result = mysqli_query($con, $sql);
         if ($result) {
             header('location: simselect.php');
@@ -48,26 +49,23 @@
 
 <body>
   <header>
-    <h1>Simulados</h1>
+    <h1>Alterar Simulados</h1>
   </header>
   <main>
     <div class="menuOptions">
-      <button type="button" class="btnInsertMenu" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        Alterar Simulado
-      </button>
     </div>
     <br>
       <div class="menuContainer">
         <div class="container-fluid">
-        <div class="container" style="background-color: #556152;">
+        <div class="container" >
             <form method="post">
                 <input type="hidden" name="id" value="<?php echo $user['id']; ?>">
-                <div class="row" style="background-color: #556152;">
+                <div class="row">
                    
                     <!-- Nome -->
                     <div class="col"> <br><br>
                         <div class="form-floating" style="width: 400px;">
-                            <h5 style="color: white;">Nome do Simulado:</h5>
+                            <h5 style="color: black;">Nome do Simulado:</h5>
                         </div>
                     </div>
                     <div class="col" style="margin-right: 520px;"> <br><br>
@@ -76,7 +74,7 @@
                     <!-- Nome do Professor -->
                     <div class="col"> <br><br>
                         <div class="form-floating" style="width: 400px;">
-                            <h5 style="color: white;">Nome do Professor:</h5>
+                            <h5 style="color: black;">Nome do Professor:</h5>
                         </div>
                     </div>
                     <div class="col" style="margin-right: 520px;"> <br><br>
@@ -111,7 +109,7 @@
                         <br>
                             <?php
                             echo
-                            "<a href='vendaselect.php'color:white;'>
+                            "<a href='simselect.php'color:white;'>
                                 <button type='button' style='padding: 9px; width: 100px;'
                                 class='btn btn-dark'>Não, Voltar</button></a>";
                             ?>
