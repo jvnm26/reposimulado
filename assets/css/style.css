@@ -141,6 +141,7 @@ footer {
 .simuName {
     font-size: larger;
     font-variant: small-caps;
+    text-align: center;
 }
 
 .buttonOptions {
