@@ -3,10 +3,15 @@
     include('verificalogin.php');
     include('connect.php');
 
-    $sql = "select s.id, s.nome simulado, p.nome professor, s.data data from simulado s
+    $sql = "select s.id, s.nome simulado, p.nome professor, p.id idp, s.data data from simulado s
     inner join professor p on p.id = s.idprofessor";
 
     $result = mysqli_query($con, $sql);
+
+    if (isset($_POST['submit'])) {
+      $idp =  $_POST['idp'];
+      $sql = "INSERT INTO simulado(idprofessor, nome, data) VALUES (,,)";
+    } 
 ?>
 
 <!DOCTYPE html>
@@ -36,28 +41,29 @@
       <button type="button" class="btnInsertMenu" data-bs-toggle="modal" data-bs-target="#exampleModal">
         Novo Simulado
       </button>
-
-      <!-- Modal -->
-      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Vamos lá!</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-            <input type="text" class="form-control" placeholder="Digite o nome da prova" aria-describedby="basic-addon1">
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não, fechar</button>
-                <button type="button" class="btn btn-primary" id="btniniciar">Iniciar novo
-                  simulado</button>
+      
+      <form method="post">
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Vamos lá!</h5>
+              </div>
+              <div class="modal-body">
+              <input type="text" class="form-control" placeholder="Digite o nome do simulado" aria-describedby="basic-addon1" name="snome">
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não, fechar</button>
+                  <button type="submit" class="btn btn-primary" id="btniniciar">Iniciar novo
+                    simulado</button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <!-- Modal -->
-      
+        <!-- Modal -->
+      </form>
+
     </div>
     <hr>
     <div class="menuItens">
@@ -71,9 +77,10 @@
                     <div class='questCount'>{$row['professor']}</div>
                     <div class='questCount'>{$data}</div>
                     <div class='buttonOptions'>
-                        <a href='./simupdate.php'><button class='btnUpdate'><i class='bi bi-pencil-square'></i></button></a>
-                        <a href='./simdelete.php'><button class='btnDelete'><i class='bi bi-trash-fill'></i></button></a>
-                        <button class='btnExecute'><i class='bi bi-play-fill'></i></button>
+                        <a href='simupdate.php?updateid={$row['id']}'><button class='btnUpdate'><i class='bi bi-pencil-square'></i></button></a>
+                        <a href='simdelete.php?deleteid={$row['id']}'><button class='btnDelete'><i class='bi bi-trash-fill'></i></button></a>
+                        <a href='perupdate.php'><button class='btnExecute'><i class='bi bi-play-fill'></i></button></a>
+
                     </div>
           </div>
         ";
