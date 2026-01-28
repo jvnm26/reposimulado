@@ -17,7 +17,47 @@
         <h1>Atualizar Simulado</h1>
     </header>
     <main>
-        
+        <section class="updateOptions">
+            <div>
+                <button type="button" class="btnBack">
+                    <i class="bi bi-escape"> Voltar</i>
+                </button>
+            </div>
+            <div>
+                <button type="button" class="btnUpdateSimu">
+                    Modificar Simulado
+                </button>
+                <button type="button" class="btnPrintSimu">
+                    Imprimir Simulado
+                </button>
+            </div>
+        </section>
+        <hr>
+        <section class="simu">
+            <div class="questionContainer">
+                <div class="questionNumber">Numero da Questão</div>
+                <div class="questionText">
+                    Questão<br>
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni obcaecati repellendus, unde
+                    inventore perspiciatis fugiat doloribus nam! Quas porro voluptate cumque velit minus necessitatibus
+                    aut atque, quis veritatis error nulla!
+                </div>
+                <div class="questionOptions">
+                    <div>
+                        <label for="option">
+                            <input type="radio" name="option">Resposta A</label>
+                        <label for="option">
+                            <input type="radio" name="option">Resposta B</label>
+                    </div>
+                    <div>
+                        <label for="option">
+                            <input type="radio" name="option">Resposta C</label>
+                        <label for="option">
+                            <input type="radio" name="option">Resposta D</label>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
     <footer>
         <h6>by 061 Senac</h6>

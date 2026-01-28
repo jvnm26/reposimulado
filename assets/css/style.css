@@ -195,29 +195,59 @@ footer {
     gap: 5px;
 }
 
-.menuContainer table {
-    width: 100%;
-    border-collapse: collapse; /* FUNDAMENTAL */
-    table-layout: fixed;
-    background: #fafafa;
-  }
-  
-  .menuContainer th,
-  .menuContainer td {
-    padding: 10px;              /* padding uniforme */
-    text-align: left;
-    box-sizing: border-box;     /* evita quebra de largura */
-  }
-  
-  .menuContainer th {
-    background-color: #e2e2e2;
-    font-weight: 600;
-  }
-  
-  .menuContainer td {
-    background-color: rgb(202, 202, 202);
-  }
-  
-  .menuContainer tr:nth-child(even) td {
-    background: #ffffff;
-  }
+/* Estilização do perUpdate */
+.updateOptions {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.updateOptions div {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 5%;
+}
+
+.updateOptions:nth-last-child{
+    width: 60%;
+}
+
+.simu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 25px;
+    padding: 3%;
+
+    flex: 1;
+
+    background-color: var(--cor1);
+
+    border: none;
+    border-radius: 10px;
+}
+
+.questionContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 25px;
+}
+
+.questionContainer .questionOptions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+
+.questionContainer .questionOptions div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 25px;
+}
