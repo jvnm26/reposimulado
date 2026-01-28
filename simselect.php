@@ -2,16 +2,17 @@
     session_start();
     include('verificalogin.php');
     include('connect.php');
-
-    $sql = "select s.id, s.nome simulado, p.nome professor, p.id idp, s.data data from simulado s
+    $idp = $_SESSION['id'];
+    $sql = "select s.id, s.nome simulado, p.nome professor, s.data data from simulado s
     inner join professor p on p.id = s.idprofessor";
 
     $result = mysqli_query($con, $sql);
-
     if (isset($_POST['submit'])) {
-      $idp =  $_POST['idp'];
-      $sql = "INSERT INTO simulado(idprofessor, nome, data) VALUES (,,)";
-    } 
+
+      $nome = $_POST['nome'];
+      $sql = "INSERT INTO simulado(idprofessor, nome, data) VALUES ('$idp','$nome','$data')";
+      $result = mysqli_query($con, $sql);
+    }
 ?>
 
 <!DOCTYPE html>
@@ -37,34 +38,54 @@
     <h1>Simulados</h1>
   </header>
   <main>
-    <div class="menuOptions">
-      <button type="button" class="btnInsertMenu" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        Novo Simulado
-      </button>
-      
-      <form method="post">
-        <!-- Modal -->
+    <form method="post">
+      <div class="menuOptions">
+        <button type="button" class="btnInsertMenu" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          Novo Simulado
+        </button>
+
+        <!-- Modal de INSERT-->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Vamos lá!</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-              <input type="text" class="form-control" placeholder="Digite o nome do simulado" aria-describedby="basic-addon1" name="snome">
+              <input type="text" class="form-control" placeholder="Digite o nome da prova" aria-describedby="basic-addon1" name="nome">
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não, fechar</button>
-                  <button type="submit" class="btn btn-primary" id="btniniciar">Iniciar novo
-                    simulado</button>
+                  <a href="perselect.php?simid={$row['id']}"><button type="submit" class="btn btn-primary" id="btniniciar" name="submit">Iniciar novo
+                    simulado</button></a>
               </div>
             </div>
           </div>
         </div>
-        <!-- Modal -->
-      </form>
+        <!-- Modal de INSERT -->
 
-    </div>
+        <!-- Modal de Delete -->
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                ...
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Understood</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Modal de Delete -->
+      </div>
+    </form>
     <hr>
     <div class="menuItens">
         <?php
@@ -78,9 +99,8 @@
                     <div class='questCount'>{$data}</div>
                     <div class='buttonOptions'>
                         <a href='simupdate.php?updateid={$row['id']}'><button class='btnUpdate'><i class='bi bi-pencil-square'></i></button></a>
-                        <a href='simdelete.php?deleteid={$row['id']}'><button class='btnDelete'><i class='bi bi-trash-fill'></i></button></a>
-                        <a href='perupdate.php'><button class='btnExecute'><i class='bi bi-play-fill'></i></button></a>
-
+                        <button class='btnDelete'><i class='bi bi-trash-fill'></i></button>
+                        <button class='btnExecute'><i class='bi bi-play-fill'></i></button>
                     </div>
           </div>
         ";
@@ -99,4 +119,4 @@
     crossorigin="anonymous"></script>
 </body>
 
-</html>
+</html> 
