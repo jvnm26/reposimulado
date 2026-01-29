@@ -100,7 +100,7 @@
                     <div class='buttonOptions'>
                         <a href='simupdate.php?updateid={$row['id']}'><button class='btnUpdate'><i class='bi bi-pencil-square'></i></button></a>
                         <button class='btnDelete'><i class='bi bi-trash-fill'></i></button>
-                        <button class='btnExecute'><i class='bi bi-play-fill'></i></button>
+                        <a href='perselect.php?simid={$row['id']}'><button class='btnExecute'><i class='bi bi-play-fill'></i></button></a>
                     </div>
           </div>
         ";
