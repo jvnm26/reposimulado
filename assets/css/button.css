@@ -5,6 +5,7 @@
     --cor4: #15e037;
     --cor5: #2694ee;
     --cor6: #e61111;
+    --cor7: #0f0f0f;
 }
 
 * {
@@ -112,12 +113,12 @@
     height: 35px;
 
     font-size: larger;
-    color: var(--cor4);
+    color: var(--cor1);
 
     border-radius: 5px;
-    border: 1px solid #15e037;
+    border: none;
 
-    background-color: var(--cor1);
+    background-color: var(--cor7);
 
     transition: all 0.3s;
 }
@@ -166,4 +167,71 @@
     transform: scale(1.05);
     background-color: transparent;
     color: var(--cor4);
+}
+
+.btnUpdateSimu {
+    width: auto;
+    height: 2rem;
+    text-wrap-mode: nowrap;
+
+    border-radius: 10px;
+    border: 1px solid var(--cor5);
+    background-color: var(--cor5);
+
+    color: var(--cor1);
+    font-variant: small-caps;
+    font-size: large;
+
+    transition: all 0.3s;
+}
+
+.btnUpdateSimu:hover {
+    transform: scale(1.1);
+    background-color: transparent;
+    color: var(--cor5);
+}
+
+.btnPrintSimu {
+    width: auto;
+    height: 2rem;
+    text-wrap-mode: nowrap;
+
+    border-radius: 10px;
+    border: 1px solid var(--cor2);
+    background-color: var(--cor2);
+
+    color: var(--cor1);
+    font-variant: small-caps;
+    font-size: large;
+
+    transition: all 0.3s;
+}
+
+.btnPrintSimu:hover {
+    transform: scale(1.1);
+    background-color: transparent;
+    color: var(--cor2);
+}
+
+.btnBack {
+    width: auto;
+    height: 2rem;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    border-radius: 10px;
+    border: 1px solid var(--cor6);
+    background-color: var(--cor6);
+
+    color: var(--cor1);
+    font-variant: small-caps;
+    font-size: large;
+
+    transition: all 0.3s;
+}
+
+.btnBack:hover {
+    transform: scale(1.1);
+    background-color: transparent;
+    color: var(--cor6);
 }
