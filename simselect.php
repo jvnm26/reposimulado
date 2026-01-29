@@ -2,11 +2,16 @@
     session_start();
     include('verificalogin.php');
     include('connect.php');
-
+    $idp = $_SESSION['id'];
     $sql = "select s.id, s.nome simulado, p.nome professor, s.data data from simulado s
     inner join professor p on p.id = s.idprofessor";
-
     $result = mysqli_query($con, $sql);
+
+    if (isset($_POST['submit'])) {
+      $nome = $_POST['nome'];
+      $sql = "INSERT INTO simulado(idprofessor, nome, data) VALUES ('$idp','$nome','$data')";
+      $result = mysqli_query($con, $sql);
+    }
 ?>
 
 <!DOCTYPE html>
@@ -32,36 +37,61 @@
     <h1>Simulados</h1>
   </header>
   <main>
-    <div class="menuOptions">
-      <button type="button" class="btnInsertMenu" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        Novo Simulado
-      </button>
+    <form method="post">
+      <div class="menuOptions">
+        <button type="button" class="btnInsertMenu" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          Novo Simulado
+        </button>
 
-      <!-- Modal -->
-      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <!-- Modal de INSERT-->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Vamos lá!</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <input type="text" class="form-control" placeholder="Digite o nome da prova"
+                  aria-describedby="basic-addon1" name="nome">
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não, fechar</button>
+                <a href="perselect.php?simid={$row['id']}"><button type="submit" class="btn btn-primary" id="btniniciar"
+                    name="submit">Iniciar novo
+                    simulado</button></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Modal de INSERT -->
+      </div>
+    </form>
+    <!-- Modal de Delete -->
+    <form action="simdelete.php" method="post">
+      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Vamos lá!</h5>
+              <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-            <input type="text" class="form-control" placeholder="Digite o nome da prova" aria-describedby="basic-addon1">
+              Apagar simulado?
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não, fechar</button>
-                <button type="button" class="btn btn-primary" id="btniniciar">Iniciar novo
-                  simulado</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não, Voltar</button>
+              <button type='submit' class='btn btn-primary'>Apagar Simulado</button>
             </div>
           </div>
         </div>
       </div>
-      <!-- Modal -->
-      
-    </div>
+    </form>
+    <!-- Modal de Delete -->
     <hr>
     <div class="menuItens">
-        <?php
+      <?php
         if($result && mysqli_num_rows($result)>0){
           while ($row = mysqli_fetch_assoc($result)){
           $data = !empty($row['data']) ? date("d/m/Y", strtotime($row['data'])) : "-";
@@ -71,9 +101,10 @@
                     <div class='questCount'>{$row['professor']}</div>
                     <div class='questCount'>{$data}</div>
                     <div class='buttonOptions'>
-                        <a href='./simupdate.php'><button class='btnUpdate'><i class='bi bi-pencil-square'></i></button></a>
-                        <a href='./simdelete.php'><button class='btnDelete'><i class='bi bi-trash-fill'></i></button></a>
-                        <button class='btnExecute'><i class='bi bi-play-fill'></i></button>
+                        <a href='simupdate.php?updateid={$row['id']}'><button class='btnUpdate'><i class='bi bi-pencil-square'></i></button></a>
+                        <button type='button' class='btnDelete' data-bs-toggle='modal' data-bs-target='#staticBackdrop'>
+                        <i class='bi bi-trash-fill'></i></button>
+                        <button class='btnExecute'><i class='bi bi-search'></i></button>
                     </div>
           </div>
         ";

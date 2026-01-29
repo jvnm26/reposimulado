@@ -28,7 +28,7 @@ if($row == 1) {
 	$_SESSION['nome'] = $valores['nome'];
 	$_SESSION['email'] = $valores['email'];
 	$_SESSION['id'] = $valores['id'];
-	header('Location: menu.php');
+	header('Location: simselect.php');
 	exit();
 
 } else {
